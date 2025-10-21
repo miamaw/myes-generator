@@ -9,7 +9,7 @@ A web-based tool for creating professional educational presentations with ease. 
 ## 🚀 Quick Start
 
 ### Access the App
-Visit: **[Your Streamlit URL here]**
+Visit: https://myes-generator-y4vmbghmrzk8pbuwretftj.streamlit.app/
 
 ### How to Use
 1. **Open** the web app in your browser
