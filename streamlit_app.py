@@ -483,7 +483,7 @@ def show_help():
     
     with st.expander("❓ Where's my background template?"):
         st.write("""
-        Make sure `Copy of MyES Slides Template 2025.jpg` is in the same 
+        Make sure `MyES Slides Template 2025.jpg` is in the same 
         folder as this app. The generator uses it for the slide background.
         """)
     
@@ -533,13 +533,13 @@ def show_settings():
     
     st.markdown("### Template Status")
     
-    template_exists = os.path.exists("Copy of MyES Slides Template 2025.jpg")
+    template_exists = os.path.exists("MyES Slides Template 2025.jpg")
     
     if template_exists:
         st.success("✅ Background template found")
     else:
         st.error("❌ Background template not found")
-        st.write("Please add `Copy of MyES Slides Template 2025.jpg` to the app directory")
+        st.write("Please add `MyES Slides Template 2025.jpg` to the app directory")
     
     st.markdown("### System Information")
     
@@ -554,4 +554,5 @@ def show_settings():
 
 
 if __name__ == "__main__":
+
     main()
