@@ -426,13 +426,14 @@ Math: x^2, H_2O, >=, pi
     """, language="text")
 
 
+
 def get_ai_instructions():
-    """Return complete AI instruction file content"""
+    """Return complete AI instruction file content - SHARED ACROSS BOTH VERSIONS"""
     return """================================================================================
-AI INSTRUCTIONS: MyES PowerPoint Generator Content Format
+AI INSTRUCTIONS: PowerPoint Generator Content Format
 ================================================================================
 
-PURPOSE: You are creating lesson content for the MyES PowerPoint Generator.
+PURPOSE: You are creating lesson content for the PowerPoint Generator.
 This file explains the EXACT format required for the content to work properly.
 
 ================================================================================
@@ -459,7 +460,6 @@ LeftBottom:     Bottom-left box in four-box layout
 RightBottom:    Bottom-right box in four-box layout
 Notes:          Teacher notes (not visible on slides)
 Template:       Apply predefined template (vocabulary, reading, comparison)
-Image:          Insert image (format: Image: filename.jpg | width=5 | align=center)
 
 ================================================================================
 LAYOUT SELECTION LOGIC
@@ -491,10 +491,10 @@ USE LeftTop: (passage) and LeftBottom: (questions) FOR:
 STYLE TAGS - USE THESE FOR FORMATTING
 ================================================================================
 
-[vocabulary]    Green, bold, 24pt - Use for NEW vocabulary terms
-[question]      Purple, 20pt - Use for discussion questions
-[answer]        Gray, italic, 18pt - Use for model answers
-[emphasis]      Red, bold, 22pt - Use for key takeaways
+[vocabulary]    Bold text - Use for NEW vocabulary terms
+[question]      Styled text - Use for discussion questions
+[answer]        Italic text - Use for model answers
+[emphasis]      Bold text - Use for key takeaways
 [step]          Creates animations - Use for sequential reveals
 
 EXAMPLES:
@@ -505,6 +505,8 @@ Content: [emphasis] Remember: Always validate before submitting!
 Content: [step] First, identify the problem
 Content: [step] Then, analyze possible solutions
 Content: [step] Finally, implement and monitor
+
+NOTE: Colors are customizable in the web app settings.
 
 ================================================================================
 CONTENT LENGTH GUIDELINES
@@ -519,6 +521,28 @@ Questions:          3-5 questions per slide maximum
 Vocabulary Items:   4-6 terms per slide
 
 IMPORTANT: Long text automatically reduces font size, but there are limits!
+
+================================================================================
+ANIMATIONS & IMAGES - HANDLE IN GOOGLE SLIDES OR POWERPOINT
+================================================================================
+
+DO NOT INCLUDE IMAGE REFERENCES OR COMPLEX ANIMATIONS IN YOUR CONTENT FILE.
+
+Instead:
+✓ Generate clean text-based slides
+✓ Add images later using Insert > Image (Google Slides) or Insert > Pictures (PowerPoint)
+✓ Recommended: Use stock photo sites like Unsplash, Pexels, Pixabay
+✓ Google Slides: Use Insert > Image > Search the web for instant access
+✓ Add animations using Insert > Animation (Google Slides) or Animations tab (PowerPoint)
+✓ Use [step] tag only for basic text reveals (handled automatically)
+
+Why this approach is better:
+- Easier to find and place images in your presentation app
+- More control over image sizing and positioning
+- Access to full animation suite in Google Slides or PowerPoint
+- Can use built-in stock images and web search
+- Easier to update and modify later
+- Works with both Google Slides and PowerPoint
 
 ================================================================================
 LESSON STRUCTURE TEMPLATE
@@ -583,7 +607,7 @@ Content: Today's Focus:
 Content: [step] Email structure and conventions
 Content: [step] Professional language and tone
 Content: [step] Common business phrases
-Notes: Warm-up about email challenges. 5 minutes.
+Notes: Warm-up about email challenges. 5 minutes. Add company logo image in Google Slides or PowerPoint.
 
 ---
 
@@ -596,7 +620,7 @@ Content: Think about:
 Content: • Clarity and conciseness
 Content: • Appropriate tone
 Content: • Professional formatting
-Notes: Pair discussion 3 minutes. Elicit responses.
+Notes: Pair discussion 3 minutes. Elicit responses. Add relevant stock photo in Google Slides or PowerPoint.
 
 ---
 
@@ -610,9 +634,10 @@ Every slide should have Notes: with:
 - Key instructions for teacher
 - Common errors to watch for
 - Extension activities if time permits
+- Suggestions for images to add later (optional)
 
 EXAMPLE:
-Notes: Elicit answers first. Drill pronunciation. CCQ: "Can something resilient break easily?" (No). Give 2 min for pair discussion. Monitor for past tense errors. 8-10 minutes total.
+Notes: Elicit answers first. Drill pronunciation. CCQ: "Can something resilient break easily?" (No). Give 2 min for pair discussion. Monitor for past tense errors. 8-10 minutes total. Suggestion: Add icon/image of person overcoming obstacle in Google Slides or PowerPoint.
 
 ================================================================================
 COMMON MISTAKES TO AVOID
@@ -625,6 +650,8 @@ COMMON MISTAKES TO AVOID
 ❌ Not using style tags ([vocabulary], [question], etc.)
 ❌ Forgetting teacher notes
 ❌ Mixing layouts incorrectly
+❌ Including image file references (handle in PowerPoint instead)
+❌ Trying to specify complex animations (use Google Slides or PowerPoint instead)
 
 ================================================================================
 CONTENT GENERATION CHECKLIST
@@ -637,11 +664,13 @@ Before submitting content, verify:
 □ [vocabulary] tags used for new terms
 □ [question] tags used for discussion prompts
 □ [emphasis] tags used for key points
-□ [step] tags used for sequential content
+□ [step] tags used for sequential content (basic reveals only)
 □ Teacher notes included on every slide
 □ Content length appropriate (not too long)
 □ Slides separated with "---"
 □ 8-10 slides total per lesson
+□ NO image references (add those in Google Slides or PowerPoint later)
+□ NO complex animation specs (handle in Google Slides or PowerPoint)
 
 ================================================================================
 LEVEL-SPECIFIC GUIDELINES
@@ -649,7 +678,7 @@ LEVEL-SPECIFIC GUIDELINES
 
 A1-A2 (Beginner):
 - Simple vocabulary and short sentences
-- More images and visual support
+- Note in teacher notes: "Add supportive images in Google Slides or PowerPoint"
 - 6-8 slides per lesson
 
 B1-B2 (Intermediate):
@@ -680,7 +709,7 @@ END OF INSTRUCTIONS
 
 
 def show_help():
-    """Show help and documentation"""
+    """Show help and documentation - SHARED ACROSS BOTH VERSIONS"""
     st.header("ℹ️ Help & Documentation")
     
     # AI Instructions Download
@@ -691,7 +720,7 @@ def show_help():
     st.download_button(
         label="📥 Download AI Instruction File",
         data=get_ai_instructions(),
-        file_name="AI_Instructions_MyES_Generator.txt",
+        file_name="AI_Instructions_PowerPoint_Generator.txt",
         mime="text/plain",
         help="Download this file to give to AI (ChatGPT, Claude, etc.)"
     )
@@ -699,9 +728,9 @@ def show_help():
     st.markdown("### 📝 Sample AI Prompts")
     
     with st.expander("🗣️ Conversation Practice Lesson"):
-        st.code("""I need to create an English lesson using the MyES PowerPoint Generator format.
+        st.code("""I need to create an English lesson using the PowerPoint Generator format.
 
-[Attach or paste the AI_Instructions_MyES_Generator.txt file]
+[Attach or paste the AI_Instructions_PowerPoint_Generator.txt file]
 
 Please create a lesson with these specifications:
 - Topic: Conversation practice - Making small talk at networking events
@@ -714,9 +743,9 @@ Please create a lesson with these specifications:
 Generate the complete content file in the exact format specified.""", language="text")
     
     with st.expander("💼 Business English Lesson"):
-        st.code("""I need to create an English lesson using the MyES PowerPoint Generator format.
+        st.code("""I need to create an English lesson using the PowerPoint Generator format.
 
-[Attach or paste the AI_Instructions_MyES_Generator.txt file]
+[Attach or paste the AI_Instructions_PowerPoint_Generator.txt file]
 
 Please create a lesson with these specifications:
 - Topic: Writing professional emails - Making requests
@@ -729,9 +758,9 @@ Please create a lesson with these specifications:
 Generate the complete content file in the exact format specified.""", language="text")
     
     with st.expander("🔬 Technical/Specialist Language"):
-        st.code("""I need to create an English lesson using the MyES PowerPoint Generator format.
+        st.code("""I need to create an English lesson using the PowerPoint Generator format.
 
-[Attach or paste the AI_Instructions_MyES_Generator.txt file]
+[Attach or paste the AI_Instructions_PowerPoint_Generator.txt file]
 
 Please create a lesson with these specifications:
 - Topic: IT Architecture - Describing cloud infrastructure
@@ -744,9 +773,9 @@ Please create a lesson with these specifications:
 Generate the complete content file in the exact format specified.""", language="text")
     
     with st.expander("📰 News Article Lesson"):
-        st.code("""I need to create an English lesson using the MyES PowerPoint Generator format.
+        st.code("""I need to create an English lesson using the PowerPoint Generator format.
 
-[Attach or paste the AI_Instructions_MyES_Generator.txt file]
+[Attach or paste the AI_Instructions_PowerPoint_Generator.txt file]
 
 Please create a lesson based on this news article:
 [Paste the article text or URL]
@@ -760,9 +789,9 @@ Specifications:
 Generate the complete content file in the exact format specified.""", language="text")
     
     with st.expander("📚 Grammar Focus Lesson"):
-        st.code("""I need to create an English lesson using the MyES PowerPoint Generator format.
+        st.code("""I need to create an English lesson using the PowerPoint Generator format.
 
-[Attach or paste the AI_Instructions_MyES_Generator.txt file]
+[Attach or paste the AI_Instructions_PowerPoint_Generator.txt file]
 
 Please create a lesson with these specifications:
 - Topic: Past Simple vs Present Perfect
@@ -775,20 +804,138 @@ Please create a lesson with these specifications:
 Generate the complete content file in the exact format specified.""", language="text")
     
     st.markdown("---")
+    
+    st.markdown("### 🎨 Adding Images & Animations")
+    
+    st.info("""
+    **Best Practice:** Add images and animations AFTER generating your presentation.
+    
+    This gives you more control and makes it easier to find the perfect visuals.
+    """)
+    
+    # Platform selection tabs
+    img_tab1, img_tab2 = st.tabs(["📊 Google Slides", "📊 PowerPoint"])
+    
+    with img_tab1:
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            st.markdown("#### 📷 Adding Images in Google Slides")
+            st.write("""
+            **Method 1: Upload from Computer**
+            1. Click **Insert** > **Image** > **Upload from computer**
+            2. Select your image file
+            3. Drag to resize and position
+            
+            **Method 2: Search the Web**
+            1. Click **Insert** > **Image** > **Search the web**
+            2. Search for your image (uses Google Images)
+            3. Click to insert
+            
+            **Method 3: Insert by URL**
+            1. Click **Insert** > **Image** > **By URL**
+            2. Paste image link from Unsplash, Pexels, etc.
+            3. Click **Insert**
+            
+            **Method 4: Google Drive**
+            - **Insert** > **Image** > **Drive** to use saved images
+            
+            **Tip:** Right-click image > **Image options** for advanced formatting
+            """)
+        
+        with col2:
+            st.markdown("#### ✨ Adding Animations in Google Slides")
+            st.write("""
+            **Basic Animations:**
+            1. **Select** the text box or object
+            2. Click **Insert** > **Animation** (or **Slide** menu)
+            3. Click **+ Add animation** in the panel
+            4. Choose animation type:
+               - **Fade in** - subtle reveal
+               - **Fly in from left/right** - dynamic entry
+               - **Zoom** - emphasis effect
+            5. Set **speed** (Slow/Medium/Fast)
+            6. Choose **Start condition**:
+               - On click (default)
+               - After previous
+               - With previous
+            
+            **Animation Panel:**
+            - Shows all animations on slide
+            - Drag to reorder
+            - Click play ▶️ to preview
+            
+            **Note:** The `[step]` tag creates separate text boxes that you can animate individually.
+            """)
+        
+        st.markdown("**🔍 Recommended Stock Image Sites:**")
+        st.markdown("""
+        - 🔸 [Unsplash](https://unsplash.com) - High quality, free (right-click > Copy image address)
+        - 🔸 [Pexels](https://pexels.com) - Diverse photos & videos (use "Copy link" button)
+        - 🔸 [Pixabay](https://pixabay.com) - Photos, vectors, illustrations
+        - 🔸 Google Images - Built into Slides (**Insert** > **Image** > **Search the web**)
+        """)
+    
+    with img_tab2:
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            st.markdown("#### 📷 Adding Images in PowerPoint")
+            st.write("""
+            1. **Open** your generated presentation
+            2. **Go to** Insert > Pictures
+            3. **Choose from:**
+               - This Device (your files)
+               - Stock Images (built-in)
+               - Online Pictures (Bing search)
+            4. **Resize & position** as needed
+            
+            **Recommended Stock Image Sites:**
+            - 🔸 [Unsplash](https://unsplash.com) - High quality, free
+            - 🔸 [Pexels](https://pexels.com) - Diverse photos & videos
+            - 🔸 [Pixabay](https://pixabay.com) - Photos, vectors, illustrations
+            - 🔸 PowerPoint's built-in stock images
+            """)
+        
+        with col2:
+            st.markdown("#### ✨ Adding Animations in PowerPoint")
+            st.write("""
+            1. **Select** the text or object
+            2. **Go to** Animations tab
+            3. **Choose** an animation effect
+            4. **Set** timing and order
+            
+            **Popular Choices:**
+            - 🔸 Fade/Appear - subtle reveals
+            - 🔸 Fly In - dynamic entry
+            - 🔸 Wipe - directional reveal
+            - 🔸 Animation Pane - manage all animations
+            
+            **Note:** The `[step]` tag in your content creates basic text reveals automatically.
+            """)
+    
+    st.markdown("---")
+    
     st.markdown("### Getting Started")
     st.write("""
-    **Option 1: Use AI to Generate Content**
+    **Option 1: Use AI to Generate Content** ⭐ Recommended
     1. **Download** the AI instruction file above
     2. **Give it to AI** (ChatGPT, Claude, Gemini, etc.) with your lesson specifications
     3. **Copy** the generated content
     4. **Paste** into the editor or upload as .txt file
     5. **Validate** and **Generate**
+    6. **Download** the .pptx file
+    7. **Open in Google Slides** (File > Open > Upload) or PowerPoint
+    8. **Add images & animations**
     
     **Option 2: Write Content Manually**
-    1. **Write or upload** your lesson content using MyES generator syntax
+    1. **Write or upload** your lesson content using the generator syntax
     2. **Validate** to check for errors
-    3. **Generate** to create your PowerPoint presentation
-    4. **Download** and use in your lesson!
+    3. **Generate** to create your presentation
+    4. **Download** the .pptx file
+    5. **Open in Google Slides or PowerPoint**
+    6. **Add images & animations**
+    7. **Use and share** your lesson!
     """)
     
     st.markdown("### Common Questions")
@@ -804,6 +951,47 @@ Generate the complete content file in the exact format specified.""", language="
         Separate slides with `---`
         """)
     
+    with st.expander("❓ Should I include image references in my content?"):
+        st.write("""
+        **No!** It's much easier to add images directly in Google Slides or PowerPoint after generating.
+        
+        This way you can:
+        - Browse and preview images easily
+        - Resize and position them perfectly
+        - Use built-in stock image search in Google Slides
+        - Use PowerPoint's built-in stock images
+        - Make changes without regenerating
+        
+        **For Google Slides:** Use **Insert** > **Image** > **Search the web** for instant access to Google Images.
+        """)
+    
+    with st.expander("❓ How do animations work?"):
+        st.write("""
+        **Basic animations:** Use the `[step]` tag in your content for automatic text reveals.
+        
+        **Advanced animations:** Add these after generating for full control.
+        
+        **In Google Slides:**
+        1. Select text box
+        2. Click **Insert** > **Animation**
+        3. Click **+ Add animation**
+        4. Choose effect and timing
+        
+        **In PowerPoint:**
+        1. Select text box
+        2. Go to **Animations** tab
+        3. Choose effect
+        
+        Example in content:
+        ```
+        Content: [step] First point
+        Content: [step] Second point
+        Content: [step] Third point
+        ```
+        
+        Each `[step]` creates a separate text box you can animate individually.
+        """)
+    
     with st.expander("❓ What if my text is too long?"):
         st.write("""
         The generator automatically reduces font size for long text:
@@ -814,30 +1002,16 @@ Generate the complete content file in the exact format specified.""", language="
         You'll see overflow warnings during validation.
         """)
     
-    with st.expander("❓ How do I add animations?"):
+    with st.expander("❓ Can I use this for any subject?"):
         st.write("""
-        Use `[step]` before each line you want to animate:
-        ```
-        Content: [step] First point
-        Content: [step] Second point
-        Content: [step] Third point
-        ```
-        Each step creates a separate shape for easy animation.
-        """)
-    
-    with st.expander("❓ Can I use images?"):
-        st.write("""
-        Yes! Upload images to the same folder and reference them:
-        ```
-        Image: diagram.png | width=5 | align=center
-        ```
-        Supported parameters: width, left, top, align
-        """)
-    
-    with st.expander("❓ Where's my background template?"):
-        st.write("""
-        Make sure `Copy of MyES Slides Template 2025.jpg` is in the same 
-        folder as this app. The generator uses it for the slide background.
+        **Yes!** While designed for language teaching, the generator works for:
+        - Any educational subject
+        - Training presentations
+        - Workshop materials
+        - Corporate training
+        - Academic lectures
+        
+        Just focus on clear text content and add subject-specific images in PowerPoint.
         """)
     
     st.markdown("### Example Lesson Structure")
@@ -846,13 +1020,14 @@ Generate the complete content file in the exact format specified.""", language="
 Slide 1 - Title & Objectives (with [step] animations)
 Slide 2 - Lead-in Discussion (with [question] tags)
 Slide 3 - Reading Passage + Questions (LeftTop/LeftBottom)
-Slide 4 - Vocabulary (Template: vocabulary)
-Slide 5 - Grammar Explanation (4-box layout)
+Slide 4 - Vocabulary (Two-column or four-box layout)
+Slide 5 - Main Content/Explanation (Choose appropriate layout)
 Slide 6 - Practice Exercise
-Slide 7 - Speaking Activity
+Slide 7 - Speaking/Production Activity
 Slide 8 - Recap & Homework
-    """, language="text")
 
+Then add relevant images and extra animations in PowerPoint!
+    """, language="text")
 
 def show_settings():
     """Show settings and configuration"""
@@ -911,4 +1086,5 @@ def show_settings():
 
 if __name__ == "__main__":
     main()
+
 
