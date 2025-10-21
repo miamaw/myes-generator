@@ -1,0 +1,57 @@
+{
+  "background_image": "MyES Slides Template 2025.jpg",
+  "title_color": [
+    192,
+    0,
+    0
+  ],
+  "text_color": [
+    0,
+    0,
+    102
+  ],
+  "font_name": "Montserrat",
+  "slide_width": 13.33,
+  "slide_height": 7.5,
+  "enable_animations": true,
+  "enable_slide_numbers": true,
+  "enable_overflow_warnings": true,
+  "styles": {
+    "vocabulary": {
+      "font_size": 24,
+      "color": [
+        0,
+        102,
+        0
+      ],
+      "bold": true
+    },
+    "question": {
+      "font_size": 20,
+      "color": [
+        102,
+        0,
+        102
+      ],
+      "bold": false
+    },
+    "answer": {
+      "font_size": 18,
+      "color": [
+        128,
+        128,
+        128
+      ],
+      "italic": true
+    },
+    "emphasis": {
+      "font_size": 22,
+      "color": [
+        192,
+        0,
+        0
+      ],
+      "bold": true
+    }
+  }
+}
