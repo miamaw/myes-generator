@@ -785,7 +785,7 @@ Generate the complete content file in the exact format specified.""", language="
     5. **Validate** and **Generate**
     
     **Option 2: Write Content Manually**
-    1. **Write or upload** your lesson content using MyES syntax
+    1. **Write or upload** your lesson content using MyES generator syntax
     2. **Validate** to check for errors
     3. **Generate** to create your PowerPoint presentation
     4. **Download** and use in your lesson!
@@ -911,3 +911,4 @@ def show_settings():
 
 if __name__ == "__main__":
     main()
+
