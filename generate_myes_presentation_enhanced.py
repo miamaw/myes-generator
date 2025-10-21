@@ -37,7 +37,7 @@ except:
 
 # === DEFAULT CONFIG ===
 DEFAULT_CONFIG = {
-    "background_image": "Copy of MyES Slides Template 2025.jpg",
+    "background_image": "MyES Slides Template 2025.jpg",
     "title_color": [192, 0, 0],
     "text_color": [0, 0, 102],
     "font_name": "Montserrat",
@@ -758,4 +758,5 @@ if __name__ == "__main__":
     build_presentation(slides, output_name, config)
     
     print("\n✨ Done!")
+
     print("=" * 60)
