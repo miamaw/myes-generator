@@ -332,17 +332,27 @@ def generate_presentation():
             config = load_config() if os.path.exists("myes_config.json") else DEFAULT_CONFIG
             slides = parse_content_file(temp_input)
             build_presentation(slides, temp_output, config)
-            
+
+            # Generate download filename from presentation title
+            if slides and slides[0]["title"]:
+                safe_title = slides[0]["title"]
+                for char in ['<', '>', ':', '"', '/', '\\', '|', '?', '*']:
+                    safe_title = safe_title.replace(char, '')
+                safe_title = safe_title.strip()
+                download_filename = safe_title + ".pptx"
+            else:
+                download_filename = "lesson_slides.pptx"
+
             # Read the generated file
             with open(temp_output, 'rb') as f:
                 pptx_data = f.read()
-            
+
             # Offer download
             st.success("✅ Presentation generated successfully!")
             st.download_button(
                 label="📥 Download PowerPoint",
                 data=pptx_data,
-                file_name="lesson_slides.pptx",
+                file_name=download_filename,
                 mime="application/vnd.openxmlformats-officedocument.presentationml.presentation"
             )
             

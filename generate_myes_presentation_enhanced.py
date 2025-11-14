@@ -746,13 +746,23 @@ if __name__ == "__main__":
     else:
         print("   ✅ All slides valid")
     
-    # Generate output filename
-    base_name = input_file.replace(".txt", "")
-    if not base_name.lower().endswith("_slides"):
-        output_name = base_name + "_slides.pptx"
+    # Generate output filename using presentation title
+    if slides and slides[0]["title"]:
+        # Sanitize title for use as filename
+        safe_title = slides[0]["title"]
+        # Remove or replace characters that are invalid in filenames
+        for char in ['<', '>', ':', '"', '/', '\\', '|', '?', '*']:
+            safe_title = safe_title.replace(char, '')
+        safe_title = safe_title.strip()
+        output_name = safe_title + ".pptx"
     else:
-        output_name = base_name + ".pptx"
-    
+        # Fallback to input filename if no title found
+        base_name = input_file.replace(".txt", "")
+        if not base_name.lower().endswith("_slides"):
+            output_name = base_name + "_slides.pptx"
+        else:
+            output_name = base_name + ".pptx"
+
     # Build presentation
     print(f"\n🎨 Generating presentation...")
     build_presentation(slides, output_name, config)
