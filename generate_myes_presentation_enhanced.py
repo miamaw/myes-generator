@@ -199,7 +199,7 @@ def process_math(text):
     replacements = {
         '<=': '≤', '>=': '≥', '!=': '≠', '~=': '≈',
         'alpha': 'α', 'beta': 'β', 'gamma': 'γ', 'delta': 'δ',
-        'pi': 'π', 'theta': 'θ', 'sigma': 'σ'
+        'theta': 'θ', 'sigma': 'σ'
     }
     for old, new in replacements.items():
         text = text.replace(old, new)
